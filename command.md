@@ -30,3 +30,7 @@ Post.Status.values
 # To view the SQL statements that will be executed with the first migration of the blog application:
 python manage.py sqlmigrate blog 0001
 
+
+## send email using shell
+from django.core.mail import send_mail
+send_mail('Django mail','This e-mail was sent with Django.', 'from@gmail.com', ['to@gmail.com'], fail_silently=False)
