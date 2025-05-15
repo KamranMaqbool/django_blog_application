@@ -1,5 +1,6 @@
 from django import forms
 
+from .models import Comment
 
 class EmailForm(forms.Form):
     name = forms.CharField(max_length=100, label='Your Name')
@@ -10,3 +11,16 @@ class EmailForm(forms.Form):
         label='Comments',
         help_text='Enter your comments here.'
     )
+    
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ('name', 'email', 'body')
+        widgets = {
+            'body': forms.Textarea(attrs={'rows': 4, 'cols': 40}),
+        }
+        labels = {
+            'name': 'Your Name',
+            'email': 'Your Email',
+            'body': 'Comment',
+        }
