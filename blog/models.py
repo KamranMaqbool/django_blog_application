@@ -2,6 +2,8 @@ from django.db import models
 from django.conf import settings
 from django.utils import timezone
 
+from taggit.managers import TaggableManager
+
 
 class PublishedManager(models.Manager):
     def get_queryset(self):
@@ -23,6 +25,7 @@ class Post(models.Model):
         on_delete=models.CASCADE, 
         related_name='blog_posts'
     )
+    tags = TaggableManager()
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     

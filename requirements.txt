@@ -8,6 +8,7 @@ charset-normalizer==3.3.2
 click==8.1.7
 cssselect2==0.8.0
 Django==5.2
+django-taggit==6.1.0
 dnspython==2.7.0
 email_validator==2.2.0
 fastapi==0.112.0

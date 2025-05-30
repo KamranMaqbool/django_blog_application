@@ -6,7 +6,7 @@ app_name = 'blog'
 
 urlpatterns = [
     
-    path('', PostListView.as_view(), name='post_list'),
+    # path('', PostListView.as_view(), name='post_list'),
     path(
         '<int:year>/<int:month>/<int:day>/<slug:post>/',
         post_detail,
@@ -16,7 +16,8 @@ urlpatterns = [
     path('<post_id>/comment/', post_comment, name='post_comment'),
     
     ## Uncomment the following lines to use function-based views
-    # path('', post_list, name='post_list'),
+    path('', post_list, name='post_list'),
+    path('tag/<slug:tag_slug>/', post_list, name="posts_list_by_slug")
     # path(
     #     '<int:year>/<int:month>/<int:day>/<slug:post>/',
     #     post_detail,
