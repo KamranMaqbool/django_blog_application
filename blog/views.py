@@ -80,13 +80,13 @@ def post_list(request, tag_slug=None):
     return render(request, 'blog/post/list.html', {'posts': posts, 'tag': tag})
 
 
-def post_detail(request, year, month, day, post):
+def post_detail(request, year, month, day, post_slug):
     post = get_object_or_404(
         Post, 
         publish__year=year,
         publish__month=month,
         publish__day=day,
-        slug=post,
+        slug=post_slug,
         status=Post.Status.PUBLISHED)
     
     post_tags_ids = post.tags.values_list('id', flat=True)

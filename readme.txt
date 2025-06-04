@@ -1,0 +1,1 @@
+In this application user subscribe RSS feed.
