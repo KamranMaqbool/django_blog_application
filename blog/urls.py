@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import post_list, post_detail, PostListView, post_share, post_comment
+from .views import post_list, post_detail, PostListView, post_share, post_comment, post_search
 from .feed import LatestPostFeed
 
 app_name = 'blog'
@@ -18,7 +18,8 @@ urlpatterns = [
     ## Uncomment the following lines to use function-based views
     path('', post_list, name='post_list'),
     path('tag/<slug:tag_slug>/', post_list, name="posts_list_by_slug"),
-    path('feed/', LatestPostFeed(), name="post_feed")
+    path('feed/', LatestPostFeed(), name="post_feed"),
+    path('search/', post_search, name="post_search"),
     # path(
     #     '<int:year>/<int:month>/<int:day>/<slug:post>/',
     #     post_detail,

@@ -24,3 +24,16 @@ class CommentForm(forms.ModelForm):
             'email': 'Your Email',
             'body': 'Comment',
         }
+
+class SearchForm(forms.Form):
+    query = forms.CharField(
+        max_length=100,
+        label='Search',
+        widget=forms.TextInput(attrs={'placeholder': 'Search...'})
+    )
+    
+    def clean_query(self):
+        query = self.cleaned_data.get('query')
+        if not query:
+            raise forms.ValidationError('This field cannot be empty.')
+        return query
