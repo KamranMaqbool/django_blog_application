@@ -48,3 +48,6 @@ python -Xutf8 manage.py dumpdata --indent=2 --output=mysite_data.json
 
 ## Loading the data into the new database
 python manage.py loaddata mysite_data.json
+
+# create empty migration for trigram
+python manage.py makemigrations --name=trigram_ext --empty blog
